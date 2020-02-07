@@ -29,7 +29,7 @@ hostname=$(echo "$fullname" | awk '{print tolower($0)}')
 # prompt user to name computer with hostname prefilled and capture it
 prompt=$(sudo -u $currentUser osascript -e 'display dialog "Enter computer name:" default answer "'$hostname'"')
 
-# get the user's input from the prompt variable. We should sanitize this if we insert spaces. But we're not.
+# get the user's input from the prompt variable. We should sanitize this in case they inserted spaces. But we're not.
 theName=$( echo "$prompt" | /usr/bin/awk -F "text returned:" '{print $2}' )
 
 # check if theName is was entered empty, and set the hostname to what we want. I don't think this is the best way to do this though.
