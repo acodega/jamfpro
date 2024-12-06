@@ -17,7 +17,7 @@ function dialogCommand() {
     sleep 0.1
 }
 
-Run as user function, as always
+# Run as user function, as always
 runAsUser() {
     if [ "$currentUser" != "loginwindow" ]; then
         launchctl asuser "$uid" sudo -u "$currentUser" "$@"
@@ -28,7 +28,6 @@ runAsUser() {
 }
 
 # Calling our initial dialog window. The & is crucial so that our script progresses.
-
 $dialogApp \
 --title "Sysdiagnose Assistant" \
 --message "Preparing to run.."  \
