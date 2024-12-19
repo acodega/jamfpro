@@ -72,6 +72,7 @@ if grep -q "AppleUSBRequest::complete" "/Users/Shared/cat_$syslogFile.txt"; then
     uploader
     rm /Users/Shared/"$syslogFile"
     rm /Users/Shared/cat_"$syslogFile".txt
+    # exit 1 seems odd but you may want the script to exit with an error if it's *found*, so that your MDM alerts you of the "error"
     errorCode=1
 else
     logger "Did not find the search phrase in /Users/Shared/cat_$syslogFile.txt"
