@@ -65,7 +65,6 @@ $log "${logOptions[@]}"
 logger "Checking the log for errors.."
 $log show /Users/Shared/"$syslogFile" --predicate 'processImagePath CONTAINS[c] "kernel" && eventMessage CONTAINS[c] "AppleUSBRequest::complete"' &> "/Users/Shared/cat_$syslogFile.txt" 2>&1
 
-# Grep /Users/Shared/cat_$syslogFile.txt for "AppleUSBRequest::complete"
 if grep -q "AppleUSBRequest::complete" "/Users/Shared/cat_$syslogFile.txt"; then
     logger "Found the search phrase in /Users/Shared/cat_$syslogFile.txt"
     # change uploader function to what you want, S3 upload etc.
